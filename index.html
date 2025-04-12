@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShopTrack - Dashboard & Orders</title>
+    <title>SereneSkin - Dashboard & Orders</title>
+        <!-- CSS Styling for Product Section and Other Layouts -->
+
     <style>
       /* Base Styles */
       :root {
@@ -191,94 +193,151 @@
       }
 
       /* Sidebar Styles */
-      .sidebar {
-        width: 250px;
-        background-color: var(--card-background);
-        border-right: 1px solid var(--border-color);
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 50;
-        transition: transform 0.3s ease;
-      }
+.sidebar {
+  width: 250px;
+  background-color: var(--card-background);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  transition: transform 0.3s ease;
+}
 
-      .sidebar-header {
-        padding: 1.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid var(--border-color);
-      }
+.sidebar-header {
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
 
-      .sidebar-header h2 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--primary-color);
-      }
+.sidebar-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
 
-      .sidebar-close {
-        display: none;
-        background: none;
-        border: none;
-        color: var(--text-muted);
-        cursor: pointer;
-      }
+.sidebar-close {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
 
-      .sidebar-nav {
-        flex: 1;
-        padding: 1rem 0;
-        overflow-y: auto;
-      }
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
 
-      .sidebar-nav ul {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-      }
+.sidebar-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
-      .sidebar-nav li {
-        padding: 0 0.75rem;
-        cursor: pointer;
-      }
+.sidebar-nav li {
+  padding: 0 0.75rem;
+  cursor: pointer;
+}
 
-      .sidebar-nav li.nav-item .nav-link {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 0.75rem;
-        border-radius: var(--border-radius);
-        color: var(--text-muted);
-        transition: all 0.2s ease;
-      }
+.sidebar-nav li.nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
 
-      .sidebar-nav li.nav-item .nav-link:hover {
-        background-color: var(--background-color);
-        color: var(--text-color);
-      }
+.sidebar-nav li.nav-item .nav-link:hover {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
 
-      .sidebar-nav li.nav-item.active .nav-link {
-        background-color: rgba(37, 99, 235, 0.1);
-        color: var(--primary-color);
-        font-weight: 500;
-      }
+.sidebar-nav li.nav-item.active .nav-link {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+  font-weight: 500;
+}
 
-      .sidebar-footer {
-        padding: 1rem;
-        border-top: 1px solid var(--border-color);
-      }
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+}
 
-      .sidebar-footer .btn {
-        width: 100%;
-      }
-      .logo2 {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        margin-bottom: 0.5rem;
-      }
+.sidebar-footer .btn {
+  width: 100%;
+}
+
+.logo2 {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  height: 64px;
+  background-color: var(--card-background);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+/* Sidebar Toggle (Mobile) */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-close {
+    display: block;
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    margin-left: auto;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/* Icons (Ensure the icons are correctly sized) */
+.sidebar-nav li .nav-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Add active state background color and font-weight */
+.sidebar-nav li.nav-item.active .nav-link {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+  font-weight: 500;
+}
 
       /* Main Content Styles */
       .main-content {
@@ -384,169 +443,332 @@
       .dropdown-item:hover {
         background-color: var(--background-color);
       }
+    
+      /* Product Section Layout - 3x3 Grid */
+.product-view {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 products per row */
+  gap: 1.5rem;
+  padding: 2rem;
+  overflow: hidden;  /* Prevent overflow */
+  width: 100%; /* Ensure full width of parent container */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
 
-      .dropdown-divider {
-        height: 1px;
-        background-color: var(--border-color);
-        margin: 0.25rem 0;
-      }
+/* Individual Product Card */
+.product-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 
-      .content-wrapper {
-        flex: 1;
-        padding: 1.5rem;
-      }
+/* Product Image */
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.5rem;
+  transition: transform 0.2s ease;
+}
 
-      .content-header {
-        margin-bottom: 1.5rem;
-      }
+/* Product Title */
+.product-card h3 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
+  color: var(--text-color);
+}
 
-      .content-header h1 {
-        font-size: 1.5rem;
-        font-weight: 700;
-      }
+/* Product Section Layout - 3x3 Grid */
+.product-view {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 products per row */
+  gap: 1.5rem;
+  padding: 2rem;
+  overflow: hidden;  /* Prevent overflow */
+  width: 100%; /* Ensure full width of parent container */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
 
-      .card {
-        background-color: var(--card-background);
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
+/* Individual Product Card */
+.product-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 
-      .card-header {
-        padding: 1rem;
-        border-bottom: 1px solid var(--border-color);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
+/* Product Image */
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.5rem;
+  transition: transform 0.2s ease;
+}
 
-      .card-body {
-        padding: 1rem;
-      }
+/* Product Title */
+.product-card h3 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
+  color: var(--text-color);
+}
 
-      .card-footer {
-        padding: 1rem;
-        border-top: 1px solid var(--border-color);
-      }
+/* Product Description */
+.product-description {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
 
-      .filter-controls {
-        display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-      }
+/* Product Price */
+.product-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
 
-      .filter-group {
-        min-width: 150px;
-      }
+/* Add to Cart Button */
+.product-card .btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
 
-      .table-responsive {
-        overflow-x: auto;
-      }
+/* Hover Effects */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
+.product-card:hover img {
+  transform: scale(1.05);
+}
 
-      th,
-      td {
-        padding: 0.75rem 1rem;
-        text-align: left;
-        border-bottom: 1px solid var(--border-color);
-      }
+.product-card .btn:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
 
-      th {
-        font-weight: 500;
-        color: var(--text-muted);
-        font-size: 0.875rem;
-      }
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .product-view {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Stack items on smaller screens */
+    gap: 1rem;
+    padding: 1rem;
+  }
 
-      tbody tr:hover {
-        background-color: rgba(0, 0, 0, 0.02);
-      }
+  .product-card {
+    padding: 0.75rem;
+  }
 
-      .no-results {
-        text-align: center;
-        padding: 2rem 0;
-        color: var(--text-muted);
-      }
+  .product-card h3 {
+    font-size: 1.1rem;
+  }
 
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.25rem 0.5rem;
-        font-size: 0.75rem;
-        font-weight: 500;
-        border-radius: 9999px;
-        text-transform: capitalize;
-      }
+  .product-price {
+    font-size: 0.9rem;
+  }
+}
 
-      .badge-success {
-        background-color: rgba(16, 185, 129, 0.1);
-        color: var(--success-color);
-      }
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      .badge-warning {
-        background-color: rgba(245, 158, 11, 0.1);
-        color: var(--warning-color);
-      }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
 
-      .badge-info {
-        background-color: rgba(59, 130, 246, 0.1);
-        color: var(--info-color);
-      }
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-      .pagination {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-      }
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-      .pagination-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.875rem;
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        background-color: var(--card-background);
-        color: var(--text-color);
-        cursor: pointer;
-      }
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
 
-      .pagination-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
 
-      .pagination-pages {
-        display: flex;
-        gap: 0.25rem;
-      }
+/* Dropdown for Status */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-      .pagination-page {
-        width: 2rem;
-        height: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: var(--border-radius);
-        border: 1px solid var(--border-color);
-        background-color: var(--card-background);
-        font-size: 0.875rem;
-        cursor: pointer;
-      }
+.dropdown-btn {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-      .pagination-page.active {
-        background-color: var(--primary-color);
-        color: white;
-        border-color: var(--primary-color);
-      }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #007bff;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Date Picker with Calendar Icon */
+.date-picker {
+  position: relative;
+}
+
+#date-filter {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 180px;
+}
+
+.fas.fa-calendar-alt {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #ccc;
+  font-size: 1rem;
+}
+
+/* Export CSV Button */
+.export-btn {
+  padding: 8px 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Table Styling */
+#order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#order-table th,
+#order-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#order-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#order-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#order-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Badge Styling */
+.badge {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.badge-delivered {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196F3;
+}
+
+.badge-shipped {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.badge-processing {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #FFC107;
+}
+/* Pagination */
+.pagination-btn {
+  padding: 10px 15px;
+  background-color: #7b6a4c;  /* Light brown color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-btn.active {
+  background-color: #6c757d;
+}
+
+.pagination-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 
       /* Featured Products (Dashboard View) */
       img {
@@ -637,14 +859,142 @@
 
         .search-container {
           width: 100%;
-        }
-      }
-      /*Help & Support*/
-      .faq-list {
-        margin-bottom: 2rem;
-        margin: 5px;
-        padding: 1rem;
-      }
+           /* Hide views initially */
+.hidden {
+  display: none;
+}
+
+/* Navigation Bar Style */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav .nav-item {
+  display: inline-block;
+}
+
+nav .nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Help & Support FAQ List */
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+
+/* Individual FAQ Item Style */
+.faq-list li {
+  margin-bottom: 10px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.content-header {
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+/* Base Styles */
+.view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    .tab-nav {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .tab-nav .tab-link {
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+      background-color: #f4f4f4;
+      margin-right: 10px;
+    }
+
+    .tab-nav .tab-link:hover {
+      background-color: #ddd;
+    }
+
+    .tab-nav .tab-link.active {
+      background-color: #e2e2e2;
+      border-bottom: 2px solid #333;
+    }
+
+    .content-container {
+      overflow-y: auto;
+      max-height: 80vh; /* Adjust this as needed */
+      padding: 1rem;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+    /* Hide elements initially */
+.hidden {
+  display: none;
+}
+
+/* Cart and Payment Modal Styles */
+#cart-modal, #payment-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Cart Items List */
+#cart-modal ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Payment Form Styles */
+#payment-form label, #payment-form input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Button Styles */
+button {
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
     </style>
   </head>
   <body>
@@ -751,66 +1101,76 @@
         </div>
         <nav class="sidebar-nav" aria-label="Main Navigation">
           <ul>
-            <li class="nav-item active" data-view="dashboard-view">
-              <a href="#" class="nav-link">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-                Dashboard
-              </a>
-            </li>
-            <li class="nav-item" data-view="orders-view">
-              <a href="#" class="nav-link">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
-                  <line x1="1" y1="10" x2="23" y2="10" />
-                </svg>
-                Orders
-              </a>
-            </li>
-            <li class="nav-item" data-view="help-support-view">
-              <a href="#" class="nav-link">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                  <line x1="12" y1="17" x2="12.01" y2="17" />
-                </svg>
-                Help &amp; Support
-              </a>
-            </li>
-          </ul>
-        </nav>
+             <!-- Dashboard -->
+    <li class="nav-item active" data-view="dashboard-view">
+      <a href="#" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        Dashboard
+      </a>
+    </li>
+    
+    <!-- Products -->
+    <li class="nav-item" data-view="products-view">
+      <a href="#" class="nav-link" style="color: #333;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1" />
+          <circle cx="20" cy="21" r="1" />
+          <path d="M1 1h4.25l.5 2h12.5l.5-2H23" />
+          <path d="M6.75 3L5.25 14h13.5L17.25 3" />
+        </svg>
+        Products
+      </a>
+    </li>
+    
+    <!-- Shipping -->
+    <li class="nav-item" data-view="shipping-view">
+      <a href="#" class="nav-link" style="color: #333;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 1h4.25l.5 2h12.5l.5-2H23" />
+          <path d="M6.75 3L5.25 14h13.5L17.25 3" />
+        </svg>
+        Shipping
+      </a>
+    </li>
+
+    <!-- Orders -->
+    <li class="nav-item" data-view="orders-view">
+      <a href="#" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+          <line x1="1" y1="10" x2="23" y2="10" />
+        </svg>
+        Orders
+      </a>
+    </li>
+
+    <!-- Loyalty Points -->
+    <li class="nav-item" data-view="loyalty-view">
+      <a href="#" class="nav-link" style="color: #333;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8" />
+          <line x1="12" y1="8" x2="12" y2="16" />
+          <line x1="8" y1="12" x2="16" y2="12" />
+        </svg>
+        Loyalty Points
+      </a>
+    </li>
+
+    <li class="nav-item" data-view="help-support-view">
+      <a href="#" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+        Help &amp; Support
+      </a>
+    </li>
+  </ul>
+</nav>
         <div class="sidebar-footer">
           <button id="logout-btn" class="btn btn-outline">
             <svg
@@ -876,182 +1236,268 @@
             </div>
           </div>
         </header>
-
         <div class="content-wrapper">
-          <!-- Dashboard View: Products being sold -->
+          <!-- Dashboard View -->
           <section id="dashboard-view" class="view hidden">
+              <img src="Images/logo.jpeg" alt="Logo" class="dashboard-logo" />
+            </div>
             <div class="images-viewer">
-              <img src="images/slide1.jpeg" alt="" />
-              <img src="images/slide2.jpeg" alt="" />
-              <img src="images/slide3.jpeg" alt="" />
-              <img src="images/slide4.jpeg" alt="" />
-            </div>
-          </section>
+              <img src="Images/slide2.jpeg" alt="Slide 2" class="slide" />
+              <img src="Images/slide3.jpeg" alt="Slide 3" class="slide" />
+              <img src="Images/slide4.jpeg" alt="Slide 4" class="slide" />
+              <!-- Product Section -->
+<div class="product-view">
+  <!-- Product 1 -->
+  <div class="product-card">
+    <img src="assets/Images/brightening face mask.avif" alt="Brightening Facemask" class="product-img" />
+    <h3>Brightening Facemask</h3>
+    <p class="product-description">Helps to lighten and brighten skin tone.</p>
+    <p class="product-price">$25.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
 
-          <!-- Orders View: Purchase History -->
-          <section id="orders-view" class="view">
-            <div class="content-header">
-              <h1>Your Orders</h1>
-            </div>
-            <!-- Search container is placed here so it only appears in Orders view -->
-            <div class="search-container" style="margin-bottom: 1rem">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="search-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-              <input
-                type="text"
-                id="search-input"
-                placeholder="Search orders..."
-              />
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h2>Order History</h2>
-                <div class="filter-controls">
-                  <div class="filter-group">
-                    <select id="status-filter" class="filter-select">
-                      <option value="all">All Statuses</option>
-                      <option value="delivered">Delivered</option>
-                      <option value="shipped">Shipped</option>
-                      <option value="processing">Processing</option>
-                    </select>
-                  </div>
-                  <div class="filter-group">
-                    <input type="date" id="date-filter" class="filter-date" />
-                  </div>
-                  <div class="filter-group">
-                    <button id="export-btn" class="btn btn-outline">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
-                      </svg>
-                      Export CSV
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table id="orders-table">
-                    <thead>
-                      <tr>
-                        <th>Order ID</th>
-                        <th>Date</th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody id="orders-table-body">
-                      <!-- Table content will be populated by JavaScript -->
-                    </tbody>
-                  </table>
-                </div>
-                <div id="no-results" class="no-results hidden">
-                  No orders found matching your filters
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="pagination">
-                  <button class="pagination-btn" disabled>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                    Previous
-                  </button>
-                  <div class="pagination-pages">
-                    <button class="pagination-page active">1</button>
-                    <button class="pagination-page">2</button>
-                    <button class="pagination-page">3</button>
-                  </div>
-                  <button class="pagination-btn">
-                    Next
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- Help & Support -->
-          <section id="help-support-view" class="view">
-            <div class="content-header">
-              <h1>Help &amp; Support</h1>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h3>Frequently Asked Questions</h3>
-                <p>
-                  If you need assistance, please check our FAQ below or contact
-                  our support team.
-                </p>
-                <ul class="faq-list">
-                  <li>
-                    <strong>How do I reset my password?</strong> You can reset
-                    your password by clicking "Forgot password?" on the Login
-                    page.
-                  </li>
-                  <li>
-                    <strong>How do I track my order?</strong> View your order
-                    history in the Orders Section.
-                  </li>
-                  <li>
-                    <strong>How do I contact support?</strong> Email us at
-                    <a href="mailto:support@example.com"
-                      >support@sereneskin.com</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
+  <!-- Product 2 -->
+  <div class="product-card">
+    <img src="assets/Images/detox bundle.webp" alt="Detox Bundle" class="product-img" />
+    <h3>Detox Bundle</h3>
+    <p class="product-description">Detox your skin with our bundle pack.</p>
+    <p class="product-price">$40.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-card">
+    <img src="assets/Images/face balm.jpg" alt="Face Balm" class="product-img" />
+    <h3>Face Balm</h3>
+    <p class="product-description">Nourish and hydrate your skin.</p>
+    <p class="product-price">$15.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="product-card">
+    <img src="assets/Images/glow pack serum and cream.jpg" alt="Glow Pack Serum and Cream" class="product-img" />
+    <h3>Glow Pack Serum and Cream</h3>
+    <p class="product-description">For glowing and radiant skin.</p>
+    <p class="product-price">$50.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="product-card">
+    <img src="assets/Images/hylaronic toner cream.webp" alt="Hyaluronic Toner Cream" class="product-img" />
+    <h3>Hyaluronic Toner Cream</h3>
+    <p class="product-description">Hydrate and balance your skin.</p>
+    <p class="product-price">$30.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+
+  <!-- Product 6 -->
+  <div class="product-card">
+    <img src="assets/Images/lush blue candle.webp" alt="Lush Blue Candle" class="product-img" />
+    <h3>Lush Blue Candle</h3>
+    <p class="product-description">Create a calming ambiance with this candle.</p>
+    <p class="product-price">$20.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+
+  <!-- Product 7 -->
+  <div class="product-card">
+    <img src="assets/Images/multivitamins.jpg" alt="Multivitamins" class="product-img" />
+    <h3>Multivitamins</h3>
+    <p class="product-description">A complete multivitamin supplement for your skin.</p>
+    <p class="product-price">$35.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+
+  <!-- Product 8 -->
+  <div class="product-card">
+    <img src="assets/Images/retinol serum.jpg" alt="Retinol Serum" class="product-img" />
+    <h3>Retinol Serum</h3>
+    <p class="product-description">Anti-aging serum for youthful skin.</p>
+    <p class="product-price">$45.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+
+  <!-- Product 9 -->
+  <div class="product-card">
+    <img src="assets/Images/scrub ad.jpg" alt="Scrub" class="product-img" />
+    <h3>Scrub</h3>
+    <p class="product-description">Exfoliate and rejuvenate your skin.</p>
+    <p class="product-price">$18.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+
+  <!-- Product 10 -->
+  <div class="product-card">
+    <img src="assets/Images/topical pink serum.avif" alt="Topical Pink Serum" class="product-img" />
+    <h3>Topical Pink Serum</h3>
+    <p class="product-description">Treat and revitalize your skin.</p>
+    <p class="product-price">$28.00</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Cart Button -->
+<button id="view-cart-btn">View Cart</button>
+
+<!-- Cart Modal (hidden initially) -->
+<div id="cart-modal" class="hidden">
+  <h2>Your Cart</h2>
+  <ul id="cart-items">
+    <!-- Dynamically filled by JS -->
+  </ul>
+  <p>Total: $<span id="cart-total">0.00</span></p>
+  <button id="proceed-to-payment">Proceed to Payment</button>
+  <button id="close-cart-btn">Close</button>
+</div>
+
+<!-- Payment Form Modal (hidden initially) -->
+<div id="payment-modal" class="hidden">
+  <h2>Enter Your Payment Details</h2>
+  <form id="payment-form">
+    <label for="card-number">Card Number:</label>
+    <input type="text" id="card-number" placeholder="Card Number" required />
+    
+    <label for="expiry-date">Expiry Date:</label>
+    <input type="text" id="expiry-date" placeholder="MM/YY" required />
+    
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" placeholder="CVV" required />
+    
+    <button type="submit" id="submit-payment">Submit Payment</button>
+  </form>
+  <button id="close-payment-btn">Close</button>
+</div>
+
+<div class="container">
+  <header class="header">
+    <h1 class="page-title">Order History</h1>
+    <div class="header-actions">
+      <!-- Status Dropdown -->
+      <div class="dropdown">
+        <button class="dropdown-btn">All Statuses</button>
+        <div class="dropdown-content">
+          <a href="#">Delivered</a>
+          <a href="#">Shipped</a>
+          <a href="#">Processing</a>
         </div>
-      </main>
+      </div>
+
+      <!-- Date Picker with Calendar Icon -->
+      <div class="date-picker">
+        <input type="date" id="date-filter">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+
+      <!-- Export CSV Button -->
+      <button class="export-btn">Export CSV</button>
     </div>
+  </header>
+
+  <!-- Order Table -->
+  <table id="order-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Date</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ORD-001</td>
+        <td>2023-11-15</td>
+        <td>Retinol Serum</td>
+        <td>$129.99</td>
+        <td><span class="badge badge-delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>ORD-002</td>
+        <td>2023-11-10</td>
+        <td>Lush Blue Candle</td>
+        <td>$249.99</td>
+        <td><span class="badge badge-shipped">Shipped</span></td>
+      </tr>
+      <tr>
+        <td>ORD-003</td>
+        <td>2023-11-05</td>
+        <td>Hyaluronic Toner Cream</td>
+        <td>$49.99</td>
+        <td><span class="badge badge-delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>ORD-004</td>
+        <td>2023-10-28</td>
+        <td>Multivitamin 90s pack</td>
+        <td>$39.99</td>
+        <td><span class="badge badge-delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>ORD-005</td>
+        <td>2023-10-20</td>
+        <td>Topicals Pink Serum</td>
+        <td>$89.99</td>
+        <td><span class="badge badge-processing">Processing</span></td>
+      </tr>
+      <tr>
+        <td>ORD-006</td>
+        <td>2023-10-15</td>
+        <td>Glow Pack</td>
+        <td>$149.99</td>
+        <td><span class="badge badge-delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>ORD-007</td>
+        <td>2023-10-10</td>
+        <td>Detox Bundle</td>
+        <td>$299.99</td>
+        <td><span class="badge badge-shipped">Shipped</span></td>
+      </tr>
+      <tr>
+        <td>ORD-008</td>
+        <td>2023-10-05</td>
+        <td>Body Balm</td>
+        <td>$59.99</td>
+        <td><span class="badge badge-delivered">Delivered</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button class="pagination-btn">Previous</button>
+    <button class="pagination-btn active">1</button>
+    <button class="pagination-btn">2</button>
+    <button class="pagination-btn">3</button>
+    <button class="pagination-btn">Next</button>
+  </div>
+</div>
+<!-- Help & Support Section -->
+<section id="help-support-view" class="view hidden">
+  <div class="content-header">
+    <h1>Help & Support</h1>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3>Frequently Asked Questions</h3>
+      <p>If you need assistance, please check our FAQ below or contact our support team.</p>
+      <ul class="faq-list">
+        <li>
+          <strong>How do I reset my password?</strong> You can reset your password by clicking "Forgot password?" on the Login page.
+        </li>
+        <li>
+          <strong>How do I track my order?</strong> View your order history in the Orders Section.
+        </li>
+        <li>
+          <strong>How do I contact support?</strong> Email us at <a href="mailto:support@example.com">support@sereneskin.com</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
     <script>
       "use strict";
@@ -1210,21 +1656,79 @@
         };
 
         // Show Dashboard view (Products)
-        const showDashboardView = () => {
-          document
-            .querySelectorAll(".view")
-            .forEach((view) => view.classList.add("hidden"));
-          document.getElementById("dashboard-view").classList.remove("hidden");
-        };
-        // Show Help & Support view
-        const showHelpSupportView = () => {
-          document
-            .querySelectorAll(".view")
-            .forEach((view) => view.classList.add("hidden"));
-          document
-            .getElementById("help-support-view")
-            .classList.remove("hidden");
-        };
+const showDashboardView = () => {
+  document
+    .querySelectorAll(".view")
+    .forEach((view) => view.classList.add("hidden"));
+  document.getElementById("dashboard-view").classList.remove("hidden");
+};
+
+// Only add alert to buttons with 'add-to-cart' class
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', () => {
+    alert('Item added to cart!');
+  });
+});
+
+// JavaScript to handle cart actions, modal toggles, etc.
+let cart = [];
+
+document.querySelectorAll('.btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const productName = this.previousElementSibling.previousElementSibling.textContent; // Product name
+    const productPrice = parseFloat(this.previousElementSibling.textContent.replace('$', '')); // Product price
+    cart.push({ productName, productPrice });
+    updateCart();
+  });
+});
+
+function updateCart() {
+  const cartItems = document.getElementById('cart-items');
+  const cartTotal = document.getElementById('cart-total');
+  cartItems.innerHTML = ''; // Clear the cart items
+  let total = 0;
+
+  cart.forEach(item => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${item.productName} - $${item.productPrice}`;
+    cartItems.appendChild(listItem);
+    total += item.productPrice;
+  });
+
+  cartTotal.textContent = total.toFixed(2);
+}
+
+// Open and Close Cart Modal
+document.getElementById('view-cart-btn').addEventListener('click', function() {
+  document.getElementById('cart-modal').classList.remove('hidden');
+});
+document.getElementById('close-cart-btn').addEventListener('click', function() {
+  document.getElementById('cart-modal').classList.add('hidden');
+});
+
+// Open and Close Payment Modal
+document.getElementById('proceed-to-payment').addEventListener('click', function() {
+  document.getElementById('payment-modal').classList.remove('hidden');
+});
+document.getElementById('close-payment-btn').addEventListener('click', function() {
+  document.getElementById('payment-modal').classList.add('hidden');
+});
+</script>
+
+</body>
+
+// Listen for click on "Help & Support" link
+document.querySelector('.nav-item[data-view="help-support-view"] a').addEventListener('click', function(e) {
+  e.preventDefault(); // Prevent the default link behavior
+  
+  // Hide all views
+  document.querySelectorAll('.view').forEach(view => view.classList.add('hidden'));
+  
+  // Show the Help & Support section
+  document.getElementById('help-support-view').classList.remove('hidden');
+});
+
+
 
         // Check if user is already logged in
         const checkLoginStatus = () => {
